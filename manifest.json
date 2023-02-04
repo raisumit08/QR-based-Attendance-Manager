@@ -1,0 +1,52 @@
+{
+    "name": "Attendance Manager",
+    "short_name": "AttendanceManager",
+    "start_url": "/index.html",
+    "display": "standalone",
+    "background_color":"#FFE9D2",
+    "theme_color": "#f6c226",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+          "src": "/img/icons/72.png",
+          "type": "image/png",
+          "sizes": "72x72"
+        },
+        {
+          "src": "/img/icons/100.png",
+          "type": "image/png",
+          "sizes": "100x100"
+        },
+        {
+          "src": "/img/icons/128.png",
+          "type": "image/png",
+          "sizes": "128x128"
+        },
+        {
+          "src": "/img/icons/144.png",
+          "type": "image/png",
+          "sizes": "144x144"
+        },
+        {
+          "src": "/img/icons/152.png",
+          "type": "image/png",
+          "sizes": "152x152"
+        },
+        {
+          "src": "/img/icons/196.png",
+          "type": "image/png",
+          "sizes": "196x196",
+          "purpose": "any maskable"
+        },
+        {
+          "src": "/img/icons/256.png",
+          "type": "image/png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "/img/icons/512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
+}

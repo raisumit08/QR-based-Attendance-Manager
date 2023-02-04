@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content ="#f6c226">
+    <title>Attendance Manager</title>
+    <link rel="icon" href="/img/icons/72.png" type="image/icon type">
+
+    <!-- materialize icons, css & js -->
+    <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="/js/materialize.min.js"></script>
+    <link rel="apple-touch-icon" href="/img/icons/100.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#f6c226">
+    <link rel="manifest" href="/manifest.json">
+
+    <!-- basic -->
+    
+    <!-- bootstrap css -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="/css/responsive.css">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <!-- owl stylesheets --> 
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+</head>
+<body class="grey lighten-4">
+
+    <!-- top nav -->
+    <nav class="z-depth-0">
+      <div class="nav-wrapper container">
+        <a href="/">Attendance<span>Manager</span></a>
+        <span class="right grey-text text-darken-1">
+          <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+        </span>
+      </div>
+    </nav>
+
+  <!-- side nav -->
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">Attendance Manager</a></li>
+    <li><a href="/" class="waves-effect">Home</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">About</a></li>
+    <li><a href="/pages/login.html" class="waves-effect">Login</a></li>
+    <li><div class="divider"></div></li>
+    <li><a href="/pages/contact.html" class="waves-effect">
+      <i class="material-icons">mail_outline</i>Contact</a>
+    </li>
+  </ul>
+
+
+    <div class="container mt-3" style="overflow-x:auto;">
+        <table class="table table-dark">
+            <thead>
+                <th>Name</th>
+                <th>Roll No</th>
+                <th>Section</th>
+                <th>Student ID</th>
+            </thead>
+            <tbody id ="tbody1"></tbody>
+        </table>
+    </div>
+
+    <script type ="module">
+
+        //---------------------------------FILLING THE TABLE-----------------------------
+        // var stdNo = 0;
+        var tbody = document.getElementById('tbody1');
+
+        function AddItemToTable(name,roll, sec, id){
+            let trow = document.createElement("tr");
+            let td1 = document.createElement('td');
+            let td2 = document.createElement('td');
+            let td3 = document.createElement('td');
+            let td4 = document.createElement('td');
+            // let td5 = document.createElement('td');
+
+            // td1.innerHTML= ++stdNo; 
+            td1.innerHTML= name; 
+            td2.innerHTML= roll; 
+            td3.innerHTML= sec; 
+            td4.innerHTML= id;
+
+            trow.appendChild(td1); 
+            trow.appendChild(td2); 
+            trow.appendChild(td3); 
+            trow.appendChild(td4); 
+
+            tbody. appendChild(trow);
+        }
+
+        function AddAllItemsToTable(TheStudent){
+            // stdNo=0;
+            tbody.innerHTML="";
+            TheStudent.forEach(element => {
+                AddItemToTable(element.NameofStd, element.RollNo, element.Section, element.StudentID);
+            });
+        }
+
+    
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        
+            const firebaseConfig = {
+                apiKey: "AIzaSyD1Om4dfAVgocRSa5YFTs9cwnY5lMIQR8I",
+                authDomain: "attendancee-managerr.firebaseapp.com",
+                projectId: "attendancee-managerr",
+                storageBucket: "attendancee-managerr.appspot.com",
+                messagingSenderId: "979124504387",
+                appId: "1:979124504387:web:e7a617438e2ae8f42591f6"
+            };
+      
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+            import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+            const db = getDatabase();
+
+            //-------------------------GETTING ALL DATA-------------------------------
+        function GetAllDataOnce(){
+            const dbRef = ref(db);
+
+            get(child(dbRef, "TheStudents"))
+            .then((snapshot)=>{
+                var students =[];
+                snapshot.forEach(childSnapshot => {
+                    students.push(childSnapshot.val());
+                });
+
+                AddAllItemsToTable(students);
+            });
+        }
+
+
+        function GetAllDataRealtime(){
+            const dbRef = ref(db, "TheStudents");
+
+            onValue(dbRef,(snapshot)=>{
+                var students =[];
+                snapshot.forEach(childSnapshot => {
+                    students.push(childSnapshot.val());
+                });
+
+                AddAllItemsToTable(students);
+            })
+        }
+
+        window.onload = GetAllDataRealtime;
+
+    </script>
+
+<script src="/js/db.js"></script>
+<script src="/js/ui.js"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,320 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6c226">
+  <title>Attendance Manager</title>
+  <link rel="icon" href="/img/icons/72.png" type="image/icon type">
+
+  <!-- materialize icons, css & js -->
+  <link type="text/css" href="/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="/js/materialize.min.js"></script>
+  <link rel="apple-touch-icon" href="/img/icons/100.png">
+  <meta name="apple-mobile-web-app-status-bar" content="#f6c226">
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- basic -->
+
+  <!-- bootstrap css -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+  <!-- style css -->
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <!-- Responsive-->
+  <link rel="stylesheet" href="/css/responsive.css">
+  <!-- Scrollbar Custom CSS -->
+  <link rel="stylesheet" href="/css/jquery.mCustomScrollbar.min.css">
+  <!-- Tweaks for older IEs-->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+  <!-- owl stylesheets -->
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+    media="screen">
+  <link rel="stylesheet" href="/css/owl.carousel.min.css">
+
+</head>
+
+<body class="grey lighten-4">
+
+  <!-- top nav -->
+  <nav class="z-depth-0">
+    <div class="nav-wrapper container">
+      <a href="/">Attendance<span>Manager</span></a>
+      <span class="right grey-text text-darken-1">
+        <i class="material-icons sidenav-trigger" data-target="side-menu">menu</i>
+      </span>
+    </div>
+  </nav>
+
+  <!-- side nav -->
+  <ul id="side-menu" class="sidenav side-menu">
+    <li><a class="subheader">Attendance Manager</a></li>
+    <li><a href="/" class="waves-effect">Home</a></li>
+    <li><a href="/pages/about.html" class="waves-effect">About</a></li>
+
+    <li><a href="/pages/login.html" class="waves-effect">Login</a></li>
+
+    <li>
+      <div class="divider"></div>
+    </li>
+    <li><a href="/pages/contact.html" class="waves-effect">
+        <i class="material-icons">mail_outline</i>Contact</a>
+    </li>
+  </ul>
+
+  <br>
+  <style>
+    div.example {
+      width: 100%;
+      font-size: 4vw;
+      padding-left: 30px;
+      float: left;
+      color: #0f0f0f;
+      font-weight: bold;
+      font-family: 'Roboto', sans-serif;
+    }
+
+
+    @media screen and (max-width: 575px) {
+      div.example {
+        width: 100%;
+      }
+    }
+  </style>
+  <div class="example"> Attendance Manager</div>
+
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+    }
+
+    .mySlides {
+      display: none;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    /* Slideshow container */
+    .slideshow-container {
+      max-width: 1000px;
+      position: relative;
+      margin: auto;
+    }
+
+    /* Caption text */
+    .text {
+      color: #f2f2f2;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+
+    /* The dots/bullets/indicators */
+    .dot {
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+
+    .active {
+      background-color: #717171;
+    }
+
+    /* Fading animation */
+    .fade {
+      animation-name: fade;
+      animation-duration: 1.5s;
+    }
+
+    @keyframes fade {
+      from {
+        opacity: .4
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    /* On smaller screens, decrease text size */
+    @media only screen and (max-width: 300px) {
+      .text {
+        font-size: 11px
+      }
+    }
+  </style>
+  </head>
+
+  <body>
+
+    <div class="slideshow-container">
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="/img/A1.png" style="width:100%">
+
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="/img/A3.webp" style="width:100%">
+
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="/img/A4.jpg" style="width:100%">
+      </div>
+
+    </div>
+    <br>
+
+    <div style="text-align:center">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+
+    <script>
+      let slideIndex = 0;
+      showSlides();
+
+      function showSlides() {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("dot");
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) { slideIndex = 1 }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+        setTimeout(showSlides, 2000); // Change image every 2 seconds
+      }
+    </script>
+    <br>
+
+    <!-- contact section start -->
+    <div class="contact_section layout_padding margin_top90">
+      <div class="container">
+        <h1 style="font-size: 4vw;" class="contact_taital">Get In Touch</h1>
+        <p class="contact_text">Contact to social media handles mentioned down below</p>
+        <div class="contact_section_2 layout_padding">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="contact_main">
+                <input type="text" class="mail_text" placeholder="Full Name" name="Full Name">
+                <input type="text" class="mail_text" placeholder="Phone Number" name="Phone Number">
+                <input type="text" class="mail_text" placeholder="Email" name="Email">
+                <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="Massage"></textarea>
+                <div class="send_bt"><a href="#">SEND</a></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="map_main">
+                <div class="map-responsive">
+                  <iframe
+                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Graphic+Era+Hill+University+Clement+Town+Dehradun+Uttarakhand+India"
+                    width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- contact section end -->
+    <br>
+    <!--about section start -->
+    <div class="about_section layout_padding">
+      <div class="container">
+        <h1 class="about_taital">About Us</h1>
+        <p class="about_text">The web application allows users to take attendance of no. of people easily with QR. Users can take attendance and can see realtime data. The web application also provides real-time data synchronization, ensuring that the data is always up to date.</p>
+        <div class="about_section_2">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="about_image"><img src="/img/icons/about-img.png"></div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about_taital_main">
+                <p class="lorem_text">The purpose of this is to document the development of a Progressive web application using HTML, CSS, JavaScript, Firebase as the backend database, and APIs. The web application is designed to be a platform for users to store, retrieve and manage their data. The project aims to provide a secure and efficient solution for users to store and manage their data online.</p>
+                <div class="read_bt"><a href="contact.html">Read More</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--about section end -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register('./sw.js').then((result) => {
+          console.warn("result", result)
+        }).catch(function (e) {
+          console.warn("e", e)
+        })
+      } else {
+        console.warn("service worker not working")
+      }
+    </script>
+
+
+    <!-- Import the functions you need from the SDKs you need -->
+    <!-- import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.0/firebase-app.js"; -->
+    <!--  TODO: Add SDKs for Firebase products that you want to use -->
+    <!-- https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/9.17.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.17.0/firebase-firestore.js"></script>
+    <!-- Your web app's Firebase configuration -->
+    <script type="module">
+      const firebaseConfig = {
+        apiKey: "AIzaSyBONihI0d0RR4Wh3h3qKzrvnbkiVSR_6lY",
+        authDomain: "attendance-managerr.firebaseapp.com",
+        projectId: "attendance-managerr",
+        storageBucket: "attendance-managerr.appspot.com",
+        messagingSenderId: "81057337161",
+        appId: "1:81057337161:web:8952731df66789dbb9d498"
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+    <script src="/js/db.js"></script>
+    <script src="/js/ui.js"></script>
+  </body>
+
+</html>

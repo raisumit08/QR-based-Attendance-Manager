@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student details</title>
+  <style>
+    /* label{display: inline-block; width: 80px;}
+    input, select {width: 120px;} */
+  </style>
+  <style>
+    /* The following tag selector body use the font-family and background-color properties for body of a page*/
+
+    body {
+      font-family: Calibri, Helvetica, sans-serif;
+      background-color: #f1c639;
+    }
+
+    /* Following container class used padding for generate space around it, and also use a background-color for specify the color lightblue as a background */
+    .container {
+      padding: 50px;
+      background-color: #b3b6ba;
+    }
+
+    /* The following tag selector input use the different properties for the text filed. */
+    input[type=text] {
+      width: 100%;
+      padding: 15px;
+      margin: 5px 0 22px 0;
+      display: inline-block;
+      border: none;
+      background: #f1f1f1;
+    }
+
+    input[type=text]:focus {
+      background-color: orange;
+      outline: none;
+    }
+
+    div {
+      padding: 10px 0;
+    }
+
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    /* The following tag selector button uses the different properties for the Button. */
+    button {
+      background-color: #51b51f;
+      color: white;
+      margin: 8px 0;
+      border: none;
+      cursor: pointer;
+      padding: 16px 20px;
+      width: 100%;
+      opacity: 0.9;
+    }
+
+    /* The following tag selector hover uses the opacity property for the Button which select button when you mouse over it. */
+    button:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <center>
+      <h1 style="font-size: 4vw;"> Registration Form</h1>
+    </center>
+    <hr>
+
+    <label> Name </label> <input id="Namebox" type="text"><br><br>
+    <label> Roll No </label> <input id="Rollbox" type="text"><br><br>
+    <label> Section </label> <input id="Secbox" type="text"><br><br>
+    <label> Student ID </label> <input id="IDbox" type="text">
+    <br>
+    <button id="Insbtn">Insert</button>
+  </div>
+
+  <!---------------------------IMPORT + CONFIG------------------------------>
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyD1Om4dfAVgocRSa5YFTs9cwnY5lMIQR8I",
+      authDomain: "attendancee-managerr.firebaseapp.com",
+      projectId: "attendancee-managerr",
+      storageBucket: "attendancee-managerr.appspot.com",
+      messagingSenderId: "979124504387",
+      appId: "1:979124504387:web:e7a617438e2ae8f42591f6"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+
+    import { getDatabase, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+
+    const db = getDatabase();
+
+    // ------------------------------Refrences---------------------------------
+
+    var namebox = document.getElementById("Namebox")
+    var rollbox = document.getElementById("Rollbox")
+    var secbox = document.getElementById("Secbox")
+    var idbox = document.getElementById("IDbox")
+
+    var insBtn = document.getElementById("Insbtn")
+
+
+    // -----------------------------Insert Data Function------------------------
+
+    function InsertData() {
+      set(ref(db, "TheStudents/" + rollbox.value), {
+        NameofStd: namebox.value,
+        RollNo: rollbox.value,
+        Section: secbox.value,
+        StudentID: idbox.value,
+      })
+        .then(() => {
+          alert("data stored successfuly");
+        })
+        .catch((error) => {
+          alert("unsuccessful, error" + error);
+        });
+    }
+
+    // -----------------------------Insert Data Function------------------------
+
+    insBtn.addEventListener('click', InsertData);
+
+  </script>
+</body>
+
+</html>
