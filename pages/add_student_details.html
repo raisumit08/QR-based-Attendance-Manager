@@ -7,10 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Student details</title>
   <style>
-    /* label{display: inline-block; width: 80px;}
-    input, select {width: 120px;} */
-  </style>
-  <style>
     /* The following tag selector body use the font-family and background-color properties for body of a page*/
 
     body {
@@ -82,14 +78,10 @@
     <button id="Insbtn">Insert</button>
   </div>
 
-  <!---------------------------IMPORT + CONFIG------------------------------>
+  <!---------------------------CONFIG Firebase------------------------------>
   <script type="module">
-    // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
-
-    // Your web app's Firebase configuration
+    
     const firebaseConfig = {
       apiKey: "AIzaSyD1Om4dfAVgocRSa5YFTs9cwnY5lMIQR8I",
       authDomain: "attendancee-managerr.firebaseapp.com",
@@ -133,7 +125,7 @@
         });
     }
 
-    // -----------------------------Insert Data Function------------------------
+    // -----------------------------Insert Data Function Call on click------------------------
 
     insBtn.addEventListener('click', InsertData);
 

@@ -76,7 +76,7 @@
     <script type ="module">
 
         //---------------------------------FILLING THE TABLE-----------------------------
-        // var stdNo = 0;
+        
         var tbody = document.getElementById('tbody1');
 
         function AddItemToTable(name,roll, sec, id){
@@ -85,9 +85,7 @@
             let td2 = document.createElement('td');
             let td3 = document.createElement('td');
             let td4 = document.createElement('td');
-            // let td5 = document.createElement('td');
-
-            // td1.innerHTML= ++stdNo; 
+             
             td1.innerHTML= name; 
             td2.innerHTML= roll; 
             td3.innerHTML= sec; 
@@ -102,7 +100,6 @@
         }
 
         function AddAllItemsToTable(TheStudent){
-            // stdNo=0;
             tbody.innerHTML="";
             TheStudent.forEach(element => {
                 AddItemToTable(element.NameofStd, element.RollNo, element.Section, element.StudentID);
@@ -143,7 +140,7 @@
             });
         }
 
-
+        //---------------------------------Getting All Realtime Data-----------------------------
         function GetAllDataRealtime(){
             const dbRef = ref(db, "TheStudents");
 

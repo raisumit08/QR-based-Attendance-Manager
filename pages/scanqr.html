@@ -75,6 +75,7 @@
     <video class="containeer" id="video" playsinline></video>
     </div>
     <script>
+        //---------------------------------Camera Functionality-----------------------------
         const video = document.getElementById("video");
 
         navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
