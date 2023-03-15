@@ -119,10 +119,12 @@
       })
         .then(() => {
           alert("data stored successfuly");
+          location.replace("https://codewithkaint.github.io/Atendence_project/")             //  This was added to redirect to main page after record adding
+        
         })
         .catch((error) => {
           alert("unsuccessful, error" + error);
-          location.replace("https://codewithkaint.github.io/Atendence_project/")                 //  This was added to redirect to main page after record adding
+          
         });
     }
 
