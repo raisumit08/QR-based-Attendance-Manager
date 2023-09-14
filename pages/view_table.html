@@ -160,9 +160,9 @@
         //}
             const q = query(collection(db2, "TheStudents"));
             const unsubscribe = onSnapshot(q, (querySnapshot) => {
-              const cities = [];
+              const students = [];
               querySnapshot.forEach((doc) => {
-                  cities.push(doc.data().name);
+                  students.push(doc.data().name);
               });
               AddAllItemsToTable(students);
             });
