@@ -124,12 +124,14 @@
             const app = initializeApp(firebaseConfig);
 
             import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
+            import { getFirestore, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             const db = getDatabase();
+            const db2 = getFirestore();
 
             //-------------------------GETTING ALL DATA-------------------------------
         function GetAllDataOnce(){
-            const dbRef = ref(db);
+            const dbRef = ref(db2);
 
             get(child(dbRef, "TheStudents"))
             .then((snapshot)=>{
@@ -144,7 +146,7 @@
 
         //---------------------------------Getting All Realtime Data-----------------------------
         function GetAllDataRealtime(){
-            const dbRef = ref(db, "TheStudents");
+            const dbRef = ref(db2, "TheStudents");
 
             onValue(dbRef,(snapshot)=>{
                 var students =[];
@@ -163,6 +165,3 @@
 <script src="/js/ui.js"></script>
 </body>
 </html>
-
-
-
