@@ -125,7 +125,7 @@
             const app = initializeApp(firebaseConfig);
 
             //import { getDatabase, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-database.js";
-            import { getFirestore, ref, child, onValue, get } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+            import { collection, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
 
             //const db = getDatabase();
             const db2 = getFirestore();
@@ -147,16 +147,25 @@
 
         //---------------------------------Getting All Realtime Data-----------------------------
         function GetAllDataRealtime(){
-            const dbRef = ref(db2, "TheStudents");
+            //const dbRef = ref(db2, "TheStudents");
 
-            onValue(dbRef,(snapshot)=>{
-                var students =[];
-                snapshot.forEach(childSnapshot => {
-                    students.push(childSnapshot.val());
-                });
+            //onValue(dbRef,(snapshot)=>{
+                //var students =[];
+                //snapshot.forEach(childSnapshot => {
+                    //students.push(childSnapshot.val());
+                //});
 
-                AddAllItemsToTable(students);
-            })
+                //AddAllItemsToTable(students);
+            //})
+        //}
+            const q = query(collection(db2, "TheStudents"));
+            const unsubscribe = onSnapshot(q, (querySnapshot) => {
+              const cities = [];
+              querySnapshot.forEach((doc) => {
+                  cities.push(doc.data().name);
+              });
+              AddAllItemsToTable(students);
+            });
         }
 
         window.onload = GetAllDataRealtime;
