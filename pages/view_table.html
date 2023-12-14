@@ -13,6 +13,8 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+    <script type="text/javascript" src="/js/table2excel.js"></script>
+    <script type="text/javascript" src="/js/sc.js"></script>
     <script type="text/javascript" src="/js/materialize.min.js"></script>
     <link rel="apple-touch-icon" href="/img/icons/100.png" />
     <meta name="apple-mobile-web-app-status-bar" content="#f6c226" />
@@ -85,6 +87,7 @@
         </thead>
         <tbody id="tbody1"></tbody>
       </table>
+      <button class="teal" onClick="tableToExcel()"> Export to Excel</button>
     </div>
 
     <script type="module">
